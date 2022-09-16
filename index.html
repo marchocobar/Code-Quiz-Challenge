@@ -1,1 +1,46 @@
+<!DOCTYPE html>
+<html>
 
+<head>
+    <meta charset="utf-8">
+    <title>Code Quiz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar bg-light">
+            <a href="#viewScores"> View High Scores</a>
+        </nav>
+    </header>
+
+    <main class="container-fluid text-center">
+        <div id="starter-container">
+            <h1>Coding Quiz!</h1>
+            <p>Click the button below to start the quiz! Incorrect answers will affect your time/score.</p>
+            <button id="start-button" type="button" class="btn btn-primary">Start Quiz</button>
+        </div>
+
+        <div id="question-container" class="hide">
+            <div id="question"></div>
+                <div id="answer-buttons" class="btn-grid">
+                    <button class="btn btn-secondary">Choice 1</button>
+                    <button class="btn btn-secondary">Choice 2</button>
+                    <button class="btn btn-secondary">Choice 3</button>
+                    <button class="btn btn-secondary">Choice 4</button>
+                </div>
+        </div>
+
+    </main>
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
