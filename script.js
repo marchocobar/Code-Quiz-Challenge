@@ -4,7 +4,7 @@ var questionElement = document.getElementById('question')
 var answerButtonsElement = document.getElementById('answer-buttons')
 var starterContainerEl = document.getElementById('starter-container')
 
-var shuffledQuestions, currentQuestionIndex
+var shuffledQuestions, randomQuestionIndex
 
 startButton.addEventListener('click', startQuiz)
 
@@ -12,34 +12,33 @@ function startQuiz() {
     startButton.classList.add('hide')
     starterContainerEl.classList.add('hide')
     questionContainerElement.classList.remove('hide')
-    shuffledQuestions = questions.sort(() => Math.random() - .5)
+    randomQuestionIndex = Math.floor(Math.random() * 4)
     currentQuestionIndex = 0
     nextQuestion()
 
 }
 
 function nextQuestion() {
-    showQuestion(shuffledQuestions[currentQuestionIndex])
+    showQuestion(questions[randomQuestionIndex])
 }
 
 function showQuestion(question) {
     questionElement.innerText = question.question
-    question.choices.forEach(choices => {
-        var button = document.createElement('button')
-        button.innerText = questions.choices.text
-        button.classList.add('btn')
-        if (answer.correct) {
-            button.dataset.correct = questions.answer
-            
-        }
-       button.addEventListener('click', selectAnswer)
-       answerButtonsElement.appendChild('button')  
-    });
-      
-
+    var choiceButtons = answerButtonsElement.children
+    for (index = 0; index < choiceButtons.length; index++) {
+        choiceButtons[index].textContent = question.choices[index].text
+        choiceButtons[index].value = question.choices[index].text
+        //Click event below console logs each button value to the console.
+        //choiceButtons[index].addEventListener('click', function (event) {
+           // console.log(event.target.value)
+       // }) 
+   }
+   choiceButtons.addEventListener('click', nextQuestion) 
+  
 }
 
-function selectAnswer(e) {
+function selectAnswer() {
+nextQuestion()
 
 }
 
