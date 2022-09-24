@@ -8,3 +8,7 @@ main {
 .hide {
   display: none;
 }
+
+.timer {
+  font-size: 20px;
+}

@@ -114,13 +114,13 @@ var questions = [
 
 
 ]
+//Storage not yet functional
+//function saveScoreToLocal() {
+   // var score = timerCount;
+   // var userInitials = document.getElementById("initials").value
 
-function saveScoreToLocal() {
-    var score = timerCount;
-    var userInitials = document.getElementById("initials").value
+    //console.log(score, userInitials)
+    //localStorage.setItem("example", "yo")
+//}
 
-    console.log(score, userInitials)
-    localStorage.setItem("example", "yo")
-}
-
-document.getElementById("saveScore").addEventListener("click", saveScoreToLocal)
+//document.getElementById("saveScore").addEventListener("click", saveScoreToLocal)
