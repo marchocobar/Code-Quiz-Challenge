@@ -12,7 +12,8 @@
 <body>
     <header>
         <nav class="navbar bg-light">
-            <a href="#viewScores"> View High Scores</a>
+            <a href="#"> View High Scores</a>
+            <div class="timer">Timer: 60</div>
         </nav>
     </header>
 
@@ -25,12 +26,18 @@
 
         <div id="question-container" class="hide">
             <div id="question"></div>
-                <div id="answer-buttons" class="btn-grid">
-                    <button class="btn btn-secondary">Choice 1</button>
-                    <button class="btn btn-secondary">Choice 2</button>
-                    <button class="btn btn-secondary">Choice 3</button>
-                    <button class="btn btn-secondary">Choice 4</button>
-                </div>
+            <div id="answer-buttons" class="btn-grid">
+                <button class="btn btn-secondary">Choice 1</button>
+                <button class="btn btn-secondary">Choice 2</button>
+                <button class="btn btn-secondary">Choice 3</button>
+                <button class="btn btn-secondary">Choice 4</button>
+            </div>
+        </div>
+
+        <div id="end-container" class="hide">
+            <div>Your score was: <span id="scoreText"></span></div>
+            <input id="initials">
+            <button id="saveScore">saveScore</button>
         </div>
 
     </main>
