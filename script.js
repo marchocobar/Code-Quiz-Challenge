@@ -128,5 +128,10 @@ function saveScoreToLocal(){
     
     }
 
+function viewScore() {
+    
+}
+
     document.getElementById("saveScore").addEventListener("click", saveScoreToLocal)
+    document.getElementById("viewScore").addEventListener("click",  )
     
