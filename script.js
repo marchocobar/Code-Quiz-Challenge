@@ -142,6 +142,7 @@ function viewScore() {
     // }
     if(!storedScore) {
         console.log('No Saved Scores');
+        scoreSheet.innerHTML = 'No Saved Scores'
     } else {
     for(i=0; i<storedScore.length; i++) {
         var savedScore = storedScore[i].score;
