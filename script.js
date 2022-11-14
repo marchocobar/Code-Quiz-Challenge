@@ -13,6 +13,36 @@ var currentQuestionIndex;
 
 var timerElement = document.querySelector(".timer")
 var timerCount
+var storedScore = []
+var scoreSheet = document.querySelector(".scoreSheet")
+
+var questions = [
+    {
+        question: 'Arrays in JavaScript can be used to store ___.',
+        answer: 'all of the above',
+        choices: ['Numbers and Strings', 'other Arrays', 'Booleans', 'all of the above']
+    },
+    {
+        question: 'Commonly used data types do NOT include ___.',
+        answer: 'Alerts',
+        choices: ['Strings', 'Booleans', 'Alerts', 'numbers']
+    },
+    {
+        question: 'You can adjust how your application appears on various screens by using ___.',
+        answer: 'Media Queries',
+        choices: ['for loops', 'Media Queries', 'HTML', 'JavaScript']
+    },
+    {
+        question: 'JavaScript goes in which HTML element?',
+        answer: '<script>',
+        choices: ['<div>', '<header>', '<script>', '<footer>']
+    }
+]
+
+
+
+
+
 
 startButton.addEventListener('click', startQuiz)
 
@@ -90,30 +120,7 @@ function endQuiz() {
     document.getElementById("scoreText").textContent = timerCount
 }
 
-var questions = [
-    {
-        question: 'Arrays in JavaScript can be used to store ___.',
-        answer: 'all of the above',
-        choices: ['Numbers and Strings', 'other Arrays', 'Booleans', 'all of the above']
-    },
-    {
-        question: 'Commonly used data types do NOT include ___.',
-        answer: 'Alerts',
-        choices: ['Strings', 'Booleans', 'Alerts', 'numbers']
-    },
-    {
-        question: 'You can adjust how your application appears on various screens by using ___.',
-        answer: 'Media Queries',
-        choices: ['for loops', 'Media Queries', 'HTML', 'JavaScript']
-    },
-    {
-        question: 'JavaScript goes in which HTML element?',
-        answer: '<script>',
-        choices: ['<div>', '<header>', '<script>', '<footer>']
-    }
 
-
-]
 
 function saveScoreToLocal(){
     var highscores = 
@@ -129,9 +136,25 @@ function saveScoreToLocal(){
     }
 
 function viewScore() {
+    document.getElementById("score-container").classList.remove('hide');
+    // if (JSON.parse(window.localStorage.getItem("highscores"))) {
+    var storedScore = JSON.parse(window.localStorage.getItem("highscores"));
+    // }
+    if(!storedScore) {
+        console.log('No Saved Scores');
+    } else {
+    for(i=0; i<storedScore.length; i++) {
+        var savedScore = storedScore[i].score;
+        var savedInitials = storedScore[i].initials;
+        scoreDiv = document.createElement('div');
+        scoreDiv.innerHTML = 'Score: ' + savedScore + ', ' + 'Player: ' + savedInitials;
+        scoreSheet.append(scoreDiv);
+    }
+    }
     
 }
 
     document.getElementById("saveScore").addEventListener("click", saveScoreToLocal)
-    document.getElementById("viewScore").addEventListener("click",  )
+    document.getElementById("viewScore").addEventListener("click", viewScore)
+
     
